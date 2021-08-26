@@ -30,6 +30,8 @@ public interface BoardService {
 	/** 댓글 페이지 */
 	public List<ReplyVO> getReplyList(int bid) throws Exception;
 
+	public void saveReply(ReplyVO replyVO) throws Exception;
+
 	
 
 }

@@ -76,4 +76,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getReplyList(bid);
 	}
 
+	@Override
+	public void saveReply(ReplyVO replyVO) throws Exception {
+		
+		boardDAO.saveReply(replyVO);
+	}
+
 }

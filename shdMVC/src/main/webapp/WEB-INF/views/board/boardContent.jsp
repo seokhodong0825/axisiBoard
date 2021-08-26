@@ -60,7 +60,7 @@
 	
 	function showReplyList(){
 
-		var url = "${pageContext.request.contextPath}/restBoard/getReqlyList";
+		var url = "${pageContext.request.contextPath}/restBoard/getReplyList";
 
 		var paramData = {"bid" : "${boardContent.bid}"};
 
@@ -136,14 +136,76 @@
 
 		});	// Ajax end
 		
-		$(document).ready(function(){
-
-			showReplyList();
-
-		});
+		
 
 
 	}
+	
+	/** 댓글 저장 버튼 클릭 이벤트 */
+	$(document).on('click', '#btnReplySave', function(){
+
+		var replyContent = $('#content').val();
+
+		var replyReg_id = $('#reg_id').val();
+
+
+
+		var paramData = JSON.stringify({"content": replyContent
+
+				, "reg_id": replyReg_id
+
+				, "bid":'${boardContent.bid}'
+
+		});
+
+		
+
+		var headers = {"Content-Type" : "application/json"
+
+				, "X-HTTP-Method-Override" : "POST"};
+
+		
+
+		$.ajax({
+
+			url: "${saveReplyURL}"
+
+			, headers : headers
+
+			, data : paramData
+
+			, type : 'POST'
+
+			, dataType : 'text'
+
+			, success: function(result){
+
+				showReplyList();
+
+				
+
+				$('#content').val('');
+
+				$('#reg_id').val('');
+
+			}
+
+			, error: function(error){
+
+				console.log("에러 : " + error);
+
+			}
+
+		});
+
+	});
+	
+	$(document).ready(function(){
+
+		showReplyList();
+
+	});
+
 
 </script>
 
