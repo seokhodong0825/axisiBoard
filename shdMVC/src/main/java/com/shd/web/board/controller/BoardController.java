@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.shd.common.Pagination;
 import com.shd.common.Search;
 import com.shd.web.board.model.BoardVO;
+import com.shd.web.board.model.ReplyVO;
 import com.shd.web.board.service.BoardService;
 
 @Controller
@@ -87,7 +88,8 @@ public class BoardController {
 	@RequestMapping(value = "/getBoardContent", method = RequestMethod.GET)
 	public String getBoardContent(Model model, @RequestParam("bid") int bid) throws Exception {
 
-		model.addAttribute("boardContent", boardService.getBoardContent(bid));
+		model.addAttribute("boardContent", boardService.getBoardContent(bid));		
+		model.addAttribute("replyVO", new ReplyVO());
 
 		return "board/boardContent";
 
