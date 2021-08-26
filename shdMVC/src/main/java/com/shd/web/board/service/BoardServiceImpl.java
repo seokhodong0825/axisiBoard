@@ -11,6 +11,7 @@ import com.shd.common.Search;
 import com.shd.web.board.dao.BoardDAO;
 
 import com.shd.web.board.model.BoardVO;
+import com.shd.web.board.model.ReplyVO;
 
 @Service
 
@@ -67,6 +68,12 @@ public class BoardServiceImpl implements BoardService {
 
 		return boardDAO.getBoardListCnt(search);
 
+	}
+
+	@Override
+	public List<ReplyVO> getReplyList(int bid) throws Exception {
+
+		return boardDAO.getReplyList(bid);
 	}
 
 }

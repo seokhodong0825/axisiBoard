@@ -1,5 +1,6 @@
 package com.shd.web.board.controller;
 
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -59,6 +60,7 @@ public class BoardController {
 		return "board/index";
 
 	}
+
 
 	/** 등록 페이지 이동 */
 	@RequestMapping(value = "/boardForm", method = RequestMethod.GET)

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.shd.common.Search;
 import com.shd.web.board.model.BoardVO;
+import com.shd.web.board.model.ReplyVO;
 
 
 
@@ -25,6 +26,9 @@ public interface BoardService {
 	
 	//총 게시글 개수 확인
 	public int getBoardListCnt(Search search) throws Exception;
+
+	/** 댓글 페이지 */
+	public List<ReplyVO> getReplyList(int bid) throws Exception;
 
 	
 
