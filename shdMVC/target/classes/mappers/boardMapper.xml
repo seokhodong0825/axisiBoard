@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+    PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    
+
+<mapper namespace="com.shd.web.board.boardMapper">
+
+<select id="getBoardList"
+		resultType="com.shd.web.board.model.BoardVO">
+		
+		SELECT
+		
+				bid
+		,		cate_cd
+		, 		title
+		, 		content
+		, 		tag
+		,		view_cnt
+		, 		reg_id
+		, 		reg_dt
+		, 		edit_dt
+
+		FROM	shd_board1
+		<include refid="CommonMapper.search" />
+		ORDER BY 
+				bid DESC
+		,		reg_dt DESC
+		
+		LIMIT #{startList}, #{listSize}
+		
+
+	</select>
+	
+	<select id="getBoardListCnt" resultType="int">
+		
+		SELECT	count(*) as listCnt
+		FROM 	shd_board1
+		<include refid="CommonMapper.searchCnt" />
+		
+	</select>
+
+
+
+	<select id="getBoardContent"
+		resultType="com.shd.web.board.model.BoardVO"
+		parameterType="com.shd.web.board.model.BoardVO">
+
+		SELECT
+
+				bid
+		,		cate_cd
+		, 		title
+		, 		content
+		, 		tag
+		,		view_cnt
+		, 		reg_id
+		, 		reg_dt
+		, 		edit_dt
+
+		FROM	shd_board1
+
+		WHERE	bid = #{bid}
+
+	</select>
+
+
+
+	<insert id="insertBoard"
+		parameterType="com.shd.web.board.model.BoardVO">
+
+		INSERT INTO shd_board1 (
+		
+				cate_cd
+		, 		title
+		, 		content
+		, 		tag
+		,		view_cnt
+		, 		reg_id
+		, 		reg_dt
+		, 		edit_dt
+		
+		) VALUES (
+
+				#{cate_cd}
+		,		#{title}
+		, 		#{content}
+		, 		#{tag}
+		, 		0
+		, 		#{reg_id}
+		, 		now()
+		, 		now()
+
+		)
+
+	</insert>
+
+
+
+	<update id="updateBoard"
+		parameterType="com.shd.web.board.model.BoardVO">
+
+		UPDATE shd_board1 
+		
+		SET
+
+				cate_cd = #{cate_cd}
+		,		title = #{title}
+		,	 	content = #{content}
+		, 		tag = #{tag}
+		, 		edit_dt = now()
+
+		WHERE	bid = #{bid}
+
+	</update>
+
+
+
+	<delete id="deleteBoard" parameterType="int">
+
+		DELETE FROM shd_board1
+
+		WHERE bid = #{bid}
+
+	</delete>
+
+
+
+	<update id="updateViewCnt"
+		parameterType="com.shd.web.board.model.BoardVO">
+
+		UPDATE shd_board1
+		
+		SET
+				view_cnt = view_cnt + 1
+
+		WHERE	bid = #{bid}
+
+	</update>
+
+
+
+</mapper>
