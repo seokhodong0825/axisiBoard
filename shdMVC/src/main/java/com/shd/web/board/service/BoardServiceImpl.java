@@ -82,4 +82,17 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.saveReply(replyVO);
 	}
 
+	@Override
+	public void updateReply(ReplyVO replyVO) throws Exception {
+		
+		boardDAO.updateReply(replyVO);
+	}
+
+	@Override
+	public void deleteReply(int rid) throws Exception {
+		
+		boardDAO.deleteReply(rid);
+		
+	}
+
 }

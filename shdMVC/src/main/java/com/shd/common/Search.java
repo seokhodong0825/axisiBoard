@@ -2,7 +2,10 @@ package com.shd.common;
 
 public class Search extends Pagination {
 	
+	/** 검색 조건 */
 	private String searchType;
+	
+	/** 입력 값 */
 	private String keyword;
 	
 	

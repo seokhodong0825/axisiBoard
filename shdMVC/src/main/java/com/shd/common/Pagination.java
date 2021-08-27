@@ -2,28 +2,41 @@ package com.shd.common;
 
 public class Pagination {
 
-	private int listSize = 10; // 초기값으로 목록개수를 10으로 셋팅
+	/** 한 페이지 목록의 개수 */
+	private int listSize = 10;
 
-	private int rangeSize = 10; // 초기값으로 페이지범위를 10으로 셋팅
-
+	/** 한 페이지 목록의 개수 */
+	private int rangeSize = 10;
+	/** 현재 페이지 */
 	private int page;
 
+	/** 현재 페이지 범위 : 각 페이지 범위 시작 번호 */
 	private int range;
 
+	/** 총 게시물의 개수 : 전체 게시물의 개수 */
 	private int listCnt;
 
+	/** 총 페이지 범위의 개수 : 전체 페이지 범위의 개수 */
 	private int pageCnt;
 
+	/** 시작 번호 : 각 페이지 범위 시작 번호 */
 	private int startPage;
 
+	/** 게시판 시작 번호 */
 	private int startList;
 
+	/** 끝 번호 : 각 페이지 범위 끝 번호 */
 	private int endPage;
 
+	/** 이전 페이지 */
 	private boolean prev;
 
+	/** 다음 페이지 */
 	private boolean next;
 
+	
+	
+	
 	public int getListSize() {
 		return listSize;
 	}
@@ -111,37 +124,37 @@ public class Pagination {
 	public void setNext(boolean next) {
 		this.next = next;
 	}
-
+	
+	
+	
+	/** 생성자 */
 	public void pageInfo(int page, int range, int listCnt) {
 
+		/** 현재 페이지 */
 		this.page = page;
 
+		/** 현재 페이지 범위 : 각 페이지 범위 시작 번호*/
 		this.range = range;
 
+		/** 총 게시물의 개수 */
 		this.listCnt = listCnt;
 
-		// 전체 페이지수
-
+		// 전체 페이지수 : 전체 페이지 범위의 개수 
 		this.pageCnt = (int) Math.ceil(listCnt / listSize);
 
 		// 시작 페이지
-
 		this.startPage = (range - 1) * rangeSize + 1;
 
 		// 끝 페이지
-
 		this.endPage = range * rangeSize;
 
 		// 게시판 시작번호
-
 		this.startList = (page - 1) * listSize;
 
 		// 이전 버튼 상태
-
 		this.prev = range == 1 ? false : true;
 
 		// 다음 버튼 상태
-
 		this.next = endPage > pageCnt ? false : true;
 
 		if (this.endPage > this.pageCnt) {

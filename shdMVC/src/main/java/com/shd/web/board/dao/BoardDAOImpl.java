@@ -16,12 +16,14 @@ import com.shd.web.board.model.ReplyVO;
 
 public class BoardDAOImpl implements BoardDAO {
 	
+	/** 공통 경로 */
 	private static final String NAMESPACE = "com.shd.web.board.boardMapper";
 	private static final String NAMESPACE_REPLY = "com.shd.web.board.replyMapper";
 
 	@Inject
 	private SqlSession sqlSession;
 
+	/** 각 경로에 있는 mapper 퀴리문을 가져옴 */
 	@Override
 	public List<BoardVO> getBoardList(Search search) throws Exception {
 

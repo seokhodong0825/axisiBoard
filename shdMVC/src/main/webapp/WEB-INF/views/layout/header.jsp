@@ -3,6 +3,8 @@
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
 
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 
 
 <!-- Bootstrap CSS -->
@@ -13,6 +15,43 @@
 
 
 
+
+
 <!-- common CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/common/css/common.css">
+
+
+
+<!-- 상단 메뉴바{s} -->
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+	<a class="navbar-brand" href="http://localhost:8080/board/getBoardList">HODONG.COM</a>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarsExample03" aria-controls="navbarsExample03"
+		aria-expanded="false" aria-label="Toggle navigation">
+
+		<span class="navbar-toggler-icon"></span>
+
+	</button>
+
+
+
+	<div class="collapse navbar-collapse" id="navbarsExample03">
+
+		<ul class="navbar-nav mr-auto">
+
+			<li class="nav-item"><a class="nav-link" href="http://localhost:8080/board/getBoardList">Board <span
+					class="sr-only">(current)</span></a></li>
+
+			<li class="nav-item"><a class="nav-link" href="http://localhost:8080/board/boardForm">write</a></li>
+
+		</ul>
+
+	</div>
+
+</nav>
+
+<!-- 상단 메뉴바{e} -->

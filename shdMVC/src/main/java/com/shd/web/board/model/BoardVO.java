@@ -2,22 +2,30 @@ package com.shd.web.board.model;
 
 public class BoardVO {
 	
+	/** 번호(PK) */
 	public int bid;
 
 	public String cate_cd;
 
+	/** 제목 */
 	public String title;
 
+	/** 게시글 */
 	public String content;
 
+	/** TAG */
 	public String tag;
 
+	/** 조회 수 */
 	public int view_cnt;
 
+	/** 작성자 */
 	public String reg_id;
 
+	/** 작성일 */
 	public String reg_dt;
 
+	/** 수정일 */
 	public String edit_dt;
 	
 	
